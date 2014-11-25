@@ -1,3 +1,5 @@
 #!/usr/bin/env ruby
 
 require 'pr/comment'
+
+PR::Comment::CLI.start
