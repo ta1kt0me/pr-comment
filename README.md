@@ -1,30 +1,36 @@
-# Pr::Comment
+# pr-comment
 
-TODO: Write a gem description
+pr-comment is CLI tool.
+display comments in Pull Request.
 
 ## Installation
 
-Add this line to your application's Gemfile:
+Before
+* set github token in environment variable `GITHUB_ACCESS_TOKEN` 
 
-```ruby
-gem 'pr-comment'
-```
+install it yourself as:
+
+    $ gem install pr-comment
 
 And then execute:
 
     $ bundle
 
-Or install it yourself as:
+Or Add this line to your application's Gemfile:
 
-    $ gem install pr-comment
+```ruby
+gem 'pr-comment'
+```
 
 ## Usage
 
-TODO: Write usage instructions here
+```sh
+prc comments org/Repo pull_request_no
+```
 
 ## Contributing
 
-1. Fork it ( https://github.com/[my-github-username]/pr-comment/fork )
+1. Fork it ( https://github.com/ta1kt0me/pr-comment/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
