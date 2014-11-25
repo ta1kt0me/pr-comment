@@ -8,9 +8,9 @@ Gem::Specification.new do |spec|
   spec.version       = Pr::Comment::VERSION
   spec.authors       = ["ta1kt0me"]
   spec.email         = ["p.wadachi@gmail.com"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
-  spec.homepage      = ""
+  spec.summary       = %q{pr-comment is CLI tool to display pull request comments.}
+  spec.description   = %q{execute `prc comment org/Repo pull_request_no`.}
+  spec.homepage      = "https://github.com/ta1kt0me/pr-comment"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
