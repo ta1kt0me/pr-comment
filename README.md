@@ -1,7 +1,7 @@
 # pr-comment
 
 pr-comment is CLI tool.
-display comments in Pull Request.
+display pull request comments.
 
 ## Installation
 
@@ -25,7 +25,7 @@ gem 'pr-comment'
 ## Usage
 
 ```sh
-prc comments org/Repo pull_request_no
+prc comment org/Repo pull_request_no
 ```
 
 ## Contributing
