@@ -7,17 +7,12 @@ module PR
 
       default_command :all
 
-
-
-      desc "all ORG/REPO PR_NO", "print pull request comments list to STDOUT."
+      desc "all ORG/REPO PR_NO", "print all pull request comments list to STDOUT."
       def all(repo, pr_no)
 
-        client = Octokit::Client.new(access_token: ENV['GITHUB_ACCESS_TOKEN'])
-        collected_comments = Pr::Comment::CollectedComments.new
-        collected_comments.add_issue_comment!(client, repo, pr_no)
-        collected_comments.add_pr_comment!(client, repo, pr_no)
 
-        collected_comments.summarize_and_sort.each_with_index do |elem, idx|
+        sorted_comments = collected_comments(repo, pr_no).summarize_and_sort
+        sorted_comments.each_with_index do |elem, idx|
           elem.each_with_index do |item, idx|
             if item.review and idx == 0
               say "--- #{item.review.path}", :green
@@ -32,10 +27,23 @@ module PR
             say "@#{item.user}", :cyan, false
             say " : #{item.comment.gsub(/(\r\n|\r|\n)/, ' ')}\n"
           end
-          say '|' if idx + 1 != collected_comments.summarize_and_sort.size
+          say '|' if idx + 1 != sorted_comments.size
         end
       end
 
+      desc "close ORG/REPO PR_NO", "print close pull request comments list to STDOUT."
+      def close(repo, pr_no)
+
+      end
+
+      private
+      def collected_comments(repo, pr_no)
+        client = Octokit::Client.new(access_token: ENV['GITHUB_ACCESS_TOKEN'])
+        comments = Pr::Comment::CollectedComments.new
+        comments.add_issue_comment!(client, repo, pr_no)
+        comments.add_pr_comment!(client, repo, pr_no)
+        comments
+      end
     end
   end
 end
