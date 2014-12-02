@@ -78,7 +78,7 @@ module Pr
         end
       end
 
-      def exclude_close_comments!
+      def closed_comments!
         self.tap { @comments.select! {|e| !e.review.nil? && e.review.closed? } }
       end
     end

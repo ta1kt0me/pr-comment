@@ -13,7 +13,7 @@ module PR
 
       desc "close ORG/REPO PR_NO", "print close pull request comments list to STDOUT."
       def close(repo, pr_no)
-        sorted_comments = collected_comments(repo, pr_no).exclude_close_comments!.summarize_and_sort
+        sorted_comments = collected_comments(repo, pr_no).closed_comments!.summarize_and_sort
         print_comment(sorted_comments)
       end
 
