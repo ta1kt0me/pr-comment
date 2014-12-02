@@ -77,6 +77,10 @@ module Pr
           Pr::Comment::PRComment.new(comment, Pr::Comment::Review.new(comment))
         end
       end
+
+      def exclude_close_comments!
+        self.tap { @comments.select! {|e| !e.review.nil? && e.review.closed? } }
+      end
     end
   end
 end
