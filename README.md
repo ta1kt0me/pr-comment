@@ -25,7 +25,9 @@ gem 'pr-comment'
 ## Usage
 
 ```sh
-prc comment org/Repo pull_request_no
+prc all org/Repo pull_request_no # display all comments in Pull Request page.
+prc open org/Repo pull_request_no # display open comments in Pull Request page.
+prc close org/Repo pull_request_no # display close comments in Pull Request page.
 ```
 
 ## Contributing
