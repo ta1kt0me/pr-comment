@@ -5,8 +5,6 @@ module PR
   module Comment
     class CLI < Thor
 
-      default_command :all
-
       desc "all ORG/REPO PR_NO", "print all pull request comments list to STDOUT."
       def all(repo, pr_no)
         sorted_comments = collected_comments(repo, pr_no).summarize_and_sort
