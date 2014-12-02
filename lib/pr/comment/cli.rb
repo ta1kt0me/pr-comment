@@ -5,10 +5,12 @@ module PR
   module Comment
     class CLI < Thor
 
-      default_command :comment
+      default_command :all
 
-      desc "comment ORG/REPO PR_NO", "print pull request comments list to STDOUT."
-      def comment(repo, pr_no)
+
+
+      desc "all ORG/REPO PR_NO", "print pull request comments list to STDOUT."
+      def all(repo, pr_no)
 
         client = Octokit::Client.new(access_token: ENV['GITHUB_ACCESS_TOKEN'])
         collected_comments = Pr::Comment::CollectedComments.new
