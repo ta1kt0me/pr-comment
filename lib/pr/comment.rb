@@ -43,6 +43,10 @@ module Pr
         if @now_position == @position then false else true end
       end
 
+      def open?
+        !closed?
+      end
+
       def diffs
         @diff_hunk.split(/(\n|\r\n|\r)++/)
       end
@@ -80,6 +84,10 @@ module Pr
 
       def closed_comments!
         self.tap { @comments.select! {|e| !e.review.nil? && e.review.closed? } }
+      end
+
+      def open_comments!
+        self.tap { @comments.select! {|e| e.review.nil? || e.review.open? } }
       end
     end
   end

@@ -17,6 +17,12 @@ module PR
         print_comment(sorted_comments)
       end
 
+      desc "open ORG/REPO PR_NO", "print close pull request comments list to STDOUT."
+      def open(repo, pr_no)
+        sorted_comments = collected_comments(repo, pr_no).open_comments!.summarize_and_sort
+        print_comment(sorted_comments)
+      end
+
       private
       def collected_comments(repo, pr_no)
         client = Octokit::Client.new(access_token: ENV['GITHUB_ACCESS_TOKEN'])
